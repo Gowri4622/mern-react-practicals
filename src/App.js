@@ -9,8 +9,6 @@ function App() {
       <Router>
       <Routes>
               <Route exact path='/' element={<FormComponent/>}/>
-              <Route exact path='/formdata' element={<DataComponent/>}/>
-
             </Routes>
             </Router>
     </div>
