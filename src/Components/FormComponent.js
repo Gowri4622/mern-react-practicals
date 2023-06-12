@@ -1,44 +1,76 @@
 import React, { useState } from 'react';
 
-const FormComponent = () => {
-  const [accountNumber, setAccountNumber] = useState('');
-  const [accountHolder, setAccountHolder] = useState('');
-  const [balance, setBalance] = useState('');
+const FormComponent
+ = () => {
+  const [name, setName] = useState('');
+  const [dob, setDob] = useState('');
+  const [address, setAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [aadharNumber, setAadharNumber] = useState('');
+  const [panNumber, setPanNumber] = useState('');
   const [showDetails, setShowDetails] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowDetails(true);
+    
   };
 
   return (
-    <div>
+    <div className='bank-form'>
       <h1>Bank Form</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Account Number:
+      <label>
+          Name:
           <input
             type="text"
-            value={accountNumber}
-            onChange={(e) => setAccountNumber(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </label>
         <br />
         <label>
-          Account Holder:
+          Date of Birth:
+          <input
+            type="date"
+            value={dob}
+            onChange={(e) => setDob(e.target.value)}
+          />
+        </label>
+        <br/>
+        <label>
+          Phone Number:
           <input
             type="text"
-            value={accountHolder}
-            onChange={(e) => setAccountHolder(e.target.value)}
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
           />
         </label>
         <br />
         <label>
-          Balance:
+          Address:
           <input
             type="text"
-            value={balance}
-            onChange={(e) => setBalance(e.target.value)}
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </label>
+        <br />
+        <label>
+          Aadhaar Number:
+          <input
+            type="text"
+            value={aadharNumber}
+            onChange={(e) => setAadharNumber(e.target.value)}
+          />
+        </label>
+        <br />
+        <label>
+          PAN Number:
+          <input
+            type="text"
+            value={panNumber}
+            onChange={(e) => setPanNumber(e.target.value)}
           />
         </label>
         <br />
@@ -46,11 +78,14 @@ const FormComponent = () => {
       </form>
 
       {showDetails && (
-        <div>
+        <div className='bank-details'>
           <h2>Bank Account Details</h2>
-          <p>Account Number: {accountNumber}</p>
-          <p>Account Holder: {accountHolder}</p>
-          <p>Balance: {balance}</p>
+          <p>Name: {name}</p>
+          <p>Date of Birth: {dob}</p>
+          <p>Phone Number : {phoneNumber}</p>
+          <p>Address : {address}</p>
+          <p>Aadhaar Number : {aadharNumber}</p>
+          <p>PAN Number : {panNumber}</p>
         </div>
       )}
     </div>
